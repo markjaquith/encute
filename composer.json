@@ -1,0 +1,56 @@
+{
+  "name": "markjaquith/encute",
+  "description": "Fluent management of scripts and styles.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Mark Jaquith",
+      "email": "mark@jaquith.me"
+    }
+  ],
+  "extra": {
+    "mozart": {
+      "dep_namespace": "CWS\\Encute\\Mozart\\",
+      "dep_directory": "/lib/Mozart/packages/",
+      "classmap_directory": "/lib/Mozart/classmaps/",
+      "classmap_prefix": "CWS_Encute_"
+    }
+  },
+  "autoload": {
+    "files": [
+      "lib/Tekta/functions.php"
+    ],
+    "classmap": [
+      "lib/Mozart/classmaps/"
+    ],
+    "psr-4": {
+      "CWS\\Encute\\Tekta\\": "lib/Tekta/",
+      "CWS\\Encute\\Illuminate\\": "lib/Illuminate/",
+      "CWS\\Encute\\Illuminate\\Support\\": [
+        "lib/Illuminate/Macroable/",
+        "lib/Illuminate/Collections/"
+      ],
+      "CWS\\Encute\\Mozart\\": "lib/Mozart/packages/",
+      "CWS\\Encute\\": "app/"
+    }
+  },
+  "require": {
+    "psr/container": "^1.1"
+  },
+  "require-dev": {
+    "coenjacobs/mozart": "dev-master",
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "php": "^7.2"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "vendor/bin/mozart compose",
+      "composer dump-autoload"
+    ],
+    "post-update-cmd": [
+      "vendor/bin/mozart compose",
+      "composer dump-autoload"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@markjaquith/encute",
+  "description": "Fluent management of scripts and styles.",
+  "version": "0.1.0",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {},
+  "private": true,
+  "keywords": [],
+  "scripts": {
+    "build": "echo 'you should implement a build command'"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Encute",
+  "description": "Fluent management of scripts and styles.",
+  "namespace": "CWS\\Encute",
+  "composerPackage": "markjaquith/encute",
+  "npmPackage": "@markjaquith/encute",
+  "phpVersion": "7.4",
+  "wpVersion": "5.7",
+  "author": "Mark Jaquith",
+  "email": "mark@jaquith.me",
+  "pluginDirectory": true,
+  "translationsDomain": "encute",
+  "license": "GPL-2.0-or-later",
+  "jsPackageTool": "yarn",
+  "copyrightYear": 2021,
+  "network": false,
+  "version": "0.1.0"
+}
