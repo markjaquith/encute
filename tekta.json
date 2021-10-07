@@ -5,7 +5,7 @@
   "composerPackage": "markjaquith/encute",
   "npmPackage": "@markjaquith/encute",
   "phpVersion": "7.4",
-  "wpVersion": "5.7",
+  "wpVersion": "5.8",
   "author": "Mark Jaquith",
   "email": "mark@jaquith.me",
   "pluginDirectory": true,

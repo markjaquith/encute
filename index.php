@@ -6,7 +6,7 @@
  * Author: Mark Jaquith
  * Plugin URI:
  * Author URI:
- * Requires at least: 5.7
+ * Requires at least: 5.8
  * Requires PHP: 7.4
  * Text Domain: encute
  * Domain Path: /languages
