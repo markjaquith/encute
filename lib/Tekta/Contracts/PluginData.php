@@ -13,4 +13,4 @@ use CWS\Encute\Illuminate\Support\Traits\Macroable;
 use CWS\Encute\Illuminate\Contracts\Support\Jsonable;
 use CWS\Encute\Illuminate\Contracts\Support\Arrayable;
 
-interface PluginDataInterface extends ArrayAccess, Arrayable, Countable, IteratorAggregate, Jsonable, JsonSerializable {}
+interface PluginData extends ArrayAccess, Arrayable, Countable, IteratorAggregate, Jsonable, JsonSerializable {}

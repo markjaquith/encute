@@ -24,6 +24,6 @@ class ExampleProvider extends ServiceProvider {
 	//
 	// Or you can use $this->app->make(SomeInterface::class) to resolve them.
 	public function boot() {
-		// $this->app->make(SomeInterface::class)->hook();
+		// $someResolvedThing->someBootMethod();
 	}
 }

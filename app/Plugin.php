@@ -8,5 +8,6 @@ class Plugin extends Tekta\Plugin {
 	 */
 	protected $providers = [
 		Providers\ExampleProvider::class,
+		Tekta\Providers\TranslationsProvider::class,
 	];
 }

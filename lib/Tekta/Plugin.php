@@ -3,12 +3,11 @@
 namespace CWS\Encute\Tekta;
 
 use CWS\Encute\Illuminate\Foundation\Application;
-use CWS\Encute\Tekta\Support\PluginData;
+use CWS\Encute\Tekta\Contracts\PluginData as PluginDataContract;
+use CWS\Encute\Tekta\PluginData;
 
 abstract class Plugin {
-	use Features\AddHooks;
 	use Features\FilesAndUrls;
-	use Features\Data;
 
 	public static $instance;
 	protected $file;
@@ -26,7 +25,7 @@ abstract class Plugin {
 
 		// Assign core things to the service container.
 		$this->app->instance(get_called_class(), $this);
-		$this->app->singleton(Contracts\PluginDataInterface::class, function () {
+		$this->app->singleton(PluginDataContract::class, function () {
 			$file = $this->getPath('tekta.json');
 			$json = file_get_contents($file);
 
