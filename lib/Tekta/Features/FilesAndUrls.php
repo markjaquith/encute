@@ -39,7 +39,7 @@ trait FilesAndUrls {
 	 * @return string The URL to the plugin's directory.
 	 */
 	public function getUrl($relativePath = '') {
-		return \plugin_dir_url($this->file) . $relativePath;
+		return \plugin_dir_url($this->getFile()) . $relativePath;
 	}
 
 	/**
@@ -49,6 +49,15 @@ trait FilesAndUrls {
 	 * @return string The absolute path to the plugin directory.
 	 */
 	public function getPath($relativePath = '') {
-		return \plugin_dir_path($this->file) . $relativePath;
+		return \plugin_dir_path($this->getFile()) . $relativePath;
+	}
+
+	/**
+	 * Returns the plugin's main file path.
+	 *
+	 * @return string The plugin's main file path.
+	 */
+	public function getFile() {
+		return $this->file;
 	}
 }

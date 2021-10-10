@@ -46,15 +46,21 @@ abstract class Plugin {
 		}
 	}
 
+	/**
+	 * Resolve something from the service container.
+	 *
+	 * @param [type] ...$args
+	 * @return void
+	 */
+	public function make(...$args) {
+		return $this->app->make(...$args);
+	}
+
 	public static function getInstance() {
 		if (!static::$instance) {
 			trigger_error("You tried to access " . get_called_class() . " before it was ready. Use add_action(\\" . get_called_class() . "::class, function() { /" . "* CODE *" . "/ }) to properly defer your code.", E_USER_ERROR);
 		}
 
 		return static::$instance;
-	}
-
-	public function getFile() {
-		return $this->file;
 	}
 }
