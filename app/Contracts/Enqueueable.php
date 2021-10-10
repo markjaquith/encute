@@ -3,7 +3,6 @@
 namespace CWS\Encute\Contracts;
 
 interface Enqueueable {
-	public function get(string $handle): self;
 	public function header(): self;
 	public function footer(): self;
 	public function delay(int $milliseconds): self;

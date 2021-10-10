@@ -2,4 +2,4 @@
 
 namespace CWS\Encute;
 
-class Style implements Contracts\EnqueueableStyle {}
+class Style extends Enqueue implements Contracts\EnqueueableStyle {}

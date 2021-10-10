@@ -2,4 +2,6 @@
 
 namespace CWS\Encute\Contracts;
 
-interface Enqueueables {}
+interface Enqueueables {
+	public function get(string $name): Enqueueable;
+}
