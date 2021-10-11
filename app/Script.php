@@ -14,4 +14,10 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 	public function async(): self {
 		return $this;
 	}
+
+	public function footer(): self {
+		Actions\MoveScriptToFooter::dispatch($this->name);
+
+		return $this;
+	}
 }

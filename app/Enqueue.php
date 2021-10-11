@@ -9,7 +9,7 @@ abstract class Enqueue implements Contracts\Enqueueable {
 	protected bool $footer = false;
 	protected int $delayMs = 0;
 	protected bool $removed = false;
-	protected ?Contracts\Groupable $group = null;
+	// protected ?Contracts\Groupable $group = null;
 	/**
 	 * @var callable
 	 */
@@ -19,9 +19,13 @@ abstract class Enqueue implements Contracts\Enqueueable {
 	 */
 	protected $removeCallback = null;
 
-	public function getName(): string {
-		return $this->name;
+	public function __construct(string $name) {
+		$this->name = $name;
 	}
+
+	// public function getName(): string {
+	// 	return $this->name;
+	// }
 
 	public function header(): self {
 		$this->header = true;
@@ -63,13 +67,13 @@ abstract class Enqueue implements Contracts\Enqueueable {
 		return $this;
 	}
 
-	public function group(Contracts\Groupable $group): self {
-		return $this;
-	}
+	// public function group(Contracts\Groupable $group): self {
+	// 	return $this;
+	// }
 
-	public function getGroup(): ?Contracts\Groupable {
-		return $this->group;
-	}
+	// public function getGroup(): ?Contracts\Groupable {
+	// 	return $this->group;
+	// }
 
 	public function remove(): self {
 		$this->removed = true;
