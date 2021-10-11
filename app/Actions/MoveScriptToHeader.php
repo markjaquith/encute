@@ -2,7 +2,7 @@
 
 namespace CWS\Encute\Actions;
 
-class MoveScriptToFooter extends Action {
+class MoveScriptToHeader extends Action {
 	protected string $name;
 
 	public function __construct(string $name) {
@@ -15,7 +15,7 @@ class MoveScriptToFooter extends Action {
 			$version = $wpScripts->registered[$name]->ver;
 			$dependencies = $wpScripts->registered[$name]->deps;
 			wp_deregister_script($name);
-			wp_register_script($name, $src, $dependencies, $version, true);
+			wp_register_script($name, $src, $dependencies, $version, false);
 
 			foreach ((array) $dependencies as $dependency) {
 				$this->move($wpScripts, $dependency);
