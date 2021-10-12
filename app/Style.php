@@ -18,7 +18,11 @@ class Style extends Enqueue implements Contracts\EnqueueableStyle {
 		return [$this->handle];
 	}
 
-	public function dependencies(): ?Enqueueable {
-		return new ScriptDependencies($this->handle);
+	public function dependencies(): Enqueueable {
+		return new StyleDependencies($this->handle);
+	}
+
+	public function withDependencies(): Enqueueable {
+		return new StyleWithDependencies($this->handle);
 	}
 }

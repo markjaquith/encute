@@ -29,7 +29,11 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 		return [$this->handle];
 	}
 
-	public function dependencies(): ?Enqueueable {
+	public function dependencies(): Enqueueable {
 		return new ScriptDependencies($this->handle);
+	}
+
+	public function withDependencies(): Enqueueable {
+		return new ScriptWithDependencies($this->handle);
 	}
 }

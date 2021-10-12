@@ -5,7 +5,7 @@ namespace CWS\Encute;
 use CWS\Encute\Contracts\Enqueueable;
 
 class ScriptDependencies extends Script implements Contracts\EnqueueableScript {
-	public function dependencies(): ?Enqueueable {
+	public function dependencies(): Enqueueable {
 		return new ScriptDependencies($this->handle);
 	}
 

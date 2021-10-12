@@ -9,7 +9,8 @@ class MakeScriptModule extends Action {
 				if ($currentHandle !== $handle) {
 					return $tag;
 				}
-
+				$tag = str_replace(' type="text/javascript" ', ' ', $tag);
+				$tag = str_replace(" type='text/javascript' ", ' ', $tag);
 				return str_replace(' src=', ' type="module" src=', $tag);
 			}, 10, 2);
 		}

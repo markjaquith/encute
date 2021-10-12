@@ -5,7 +5,7 @@ namespace CWS\Encute;
 use CWS\Encute\Contracts\Enqueueable;
 
 class StyleDependencies extends Style implements Contracts\EnqueueableStyle {
-	public function dependencies(): ?Enqueueable {
+	public function dependencies(): Enqueueable {
 		return new StyleDependencies($this->handle);
 	}
 
