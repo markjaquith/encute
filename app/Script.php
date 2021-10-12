@@ -14,7 +14,11 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 	}
 
 	public function async(): self {
-		return $this;
+		return $this->dispatch(Actions\MakeScriptAsync::class);
+	}
+
+	public function defer(): self {
+		return $this->dispatch(Actions\MakeScriptDefer::class);
 	}
 
 	public function header(): self {
