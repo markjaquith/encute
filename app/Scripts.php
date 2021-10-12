@@ -3,8 +3,8 @@
 namespace CWS\Encute;
 
 class Scripts extends Enqueues implements Contracts\Scripts {
-	public function get(string $name): Script {
-		$script = new Script($name);
+	public function get(string $handle): Script {
+		$script = new Script($handle);
 		$this->add($script);
 
 		return $script;

@@ -11,9 +11,9 @@ interface Enqueueable {
 	public function removeIf(callable $callback): Enqueueable;
 	// public function group(Groupable $group): Enqueueable;
 	public function remove(): Enqueueable;
-	// public function getName(): string;
+	// public function getHandle(): string;
 	// public function getGroup(): ?Groupable;
-	public function getNames(): array;
+	public function getHandles(): array;
 	public function dependencies(): ?Enqueueable;
 	public function dispatch(string $actionClass, ...$args): Enqueueable;
 }

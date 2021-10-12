@@ -3,5 +3,5 @@
 namespace CWS\Encute\Contracts;
 
 interface Enqueueables {
-	public function get(string $name): Enqueueable;
+	public function get(string $handle): Enqueueable;
 }

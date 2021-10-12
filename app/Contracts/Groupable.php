@@ -3,6 +3,6 @@
 namespace CWS\Encute\Contracts;
 
 interface Groupable {
-	public static function make(string $name): self;
-	public function getName(): string;
+	public static function make(string $handle): self;
+	public function getHandle(): string;
 };

@@ -6,10 +6,10 @@ use CWS\Encute\Contracts\Enqueueable;
 
 class StyleDependencies extends Style implements Contracts\EnqueueableStyle {
 	public function dependencies(): ?Enqueueable {
-		return new StyleDependencies($this->name);
+		return new StyleDependencies($this->handle);
 	}
 
-	public function getNames(): array {
-		return app()->make(\WP_Styles::class)->registered[$this->name]->deps ?? [];
+	public function getHandles(): array {
+		return app()->make(\WP_Styles::class)->registered[$this->handle]->deps ?? [];
 	}
 }

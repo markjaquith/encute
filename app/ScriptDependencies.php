@@ -6,10 +6,10 @@ use CWS\Encute\Contracts\Enqueueable;
 
 class ScriptDependencies extends Script implements Contracts\EnqueueableScript {
 	public function dependencies(): ?Enqueueable {
-		return new ScriptDependencies($this->name);
+		return new ScriptDependencies($this->handle);
 	}
 
-	public function getNames(): array {
-		return app()->make(\WP_Scripts::class)->registered[$this->name]->deps ?? [];
+	public function getHandles(): array {
+		return app()->make(\WP_Scripts::class)->registered[$this->handle]->deps ?? [];
 	}
 }

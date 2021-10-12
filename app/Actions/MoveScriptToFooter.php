@@ -3,20 +3,19 @@
 namespace CWS\Encute\Actions;
 
 class MoveScriptToFooter extends Action {
-	protected function move(\WP_Scripts $wpScripts, string $name) {
-		if (wp_script_is($name, 'registered')) {
-			$src = $wpScripts->registered[$name]->src;
-			$version = $wpScripts->registered[$name]->ver;
-			$dependencies = $wpScripts->registered[$name]->deps;
-			wp_deregister_script($name);
-			wp_register_script($name, $src, $dependencies, $version, true);
-			foreach ((array) $dependencies as $dependency) {
-				$this->move($wpScripts, $dependency);
-			}
+	protected function move(\WP_Scripts $wpScripts, string $handle) {
+		if (wp_script_is($handle, 'registered')) {
+			$src = $wpScripts->registered[$handle]->src;
+			$version = $wpScripts->registered[$handle]->ver;
+			$dependencies = $wpScripts->registered[$handle]->deps;
+			wp_deregister_script($handle);
+			wp_register_script($handle, $src, $dependencies, $version, true);
 		}
 	}
 
 	public function handle(\WP_Scripts $wpScripts): void {
-		$this->move($wpScripts, $this->name);
+		foreach ($this->asset->getHandles() as $handle) {
+			$this->move($wpScripts, $handle);
+		}
 	}
 }

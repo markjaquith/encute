@@ -5,7 +5,7 @@ namespace CWS\Encute;
 use CWS\Encute\Contracts\Enqueueable;
 
 abstract class Enqueue implements Enqueueable {
-	protected string $name = '';
+	protected string $handle = '';
 	protected bool $defer = false;
 	protected bool $header = false;
 	protected bool $footer = false;
@@ -21,12 +21,12 @@ abstract class Enqueue implements Enqueueable {
 	 */
 	protected $removeCallback = null;
 
-	public function __construct(string $name) {
-		$this->name = $name;
+	public function __construct(string $handle) {
+		$this->handle = $handle;
 	}
 
-	// public function getName(): string {
-	// 	return $this->name;
+	// public function getHandle(): string {
+	// 	return $this->handle;
 	// }
 
 	public function header(): self {
@@ -84,9 +84,7 @@ abstract class Enqueue implements Enqueueable {
 	}
 
 	public function dispatch(string $actionClass, ...$args): Enqueueable {
-		foreach ($this->getNames() as $name) {
-			$actionClass::dispatch($name, ...$args);
-		}
+		$actionClass::dispatch($this, ...$args);
 
 		return $this;
 	}

@@ -6,9 +6,7 @@ use CWS\Encute\Contracts\Enqueueable;
 
 class Script extends Enqueue implements Contracts\EnqueueableScript {
 	public function module(): self {
-		Actions\MakeScriptModule::dispatch($this->name);
-
-		return $this;
+		return $this->dispatch(Actions\MakeScriptModule::class);
 	}
 
 	public function noModule(): self {
@@ -27,11 +25,11 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 		return $this->dispatch(Actions\MoveScriptToFooter::class);
 	}
 
-	public function getNames(): array {
-		return [$this->name];
+	public function getHandles(): array {
+		return [$this->handle];
 	}
 
 	public function dependencies(): ?Enqueueable {
-		return new ScriptDependencies($this->name);
+		return new ScriptDependencies($this->handle);
 	}
 }

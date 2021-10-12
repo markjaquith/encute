@@ -17,7 +17,7 @@ abstract class Enqueues implements Enqueueables {
 		$this->enqueues->push($enqueueable);
 	}
 
-	abstract public function get(string $name): Enqueueable;
+	abstract public function get(string $handle): Enqueueable;
 
 	public function all(): Collection {
 		return $this->enqueues;

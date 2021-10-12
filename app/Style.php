@@ -14,11 +14,11 @@ class Style extends Enqueue implements Contracts\EnqueueableStyle {
 		return $this->dispatch(Actions\MoveStyleToFooter::class);
 	}
 
-	public function getNames(): array {
-		return [$this->name];
+	public function getHandles(): array {
+		return [$this->handle];
 	}
 
 	public function dependencies(): ?Enqueueable {
-		return new ScriptDependencies($this->name);
+		return new ScriptDependencies($this->handle);
 	}
 }
