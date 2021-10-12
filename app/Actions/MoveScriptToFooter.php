@@ -16,7 +16,6 @@ class MoveScriptToFooter extends Action {
 			$dependencies = $wpScripts->registered[$name]->deps;
 			wp_deregister_script($name);
 			wp_register_script($name, $src, $dependencies, $version, true);
-
 			foreach ((array) $dependencies as $dependency) {
 				$this->move($wpScripts, $dependency);
 			}
