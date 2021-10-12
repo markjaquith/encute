@@ -7,7 +7,7 @@ interface Enqueueable {
 	public function footer(): Enqueueable;
 	// public function delay(int $milliseconds): Enqueueable;
 	public function defer(): Enqueueable;
-	// public function showIf(callable $callback): Enqueueable;
+	// public function keepIf(callable $callback): Enqueueable;
 	// public function removeIf(callable $callback): Enqueueable;
 	public function remove(): Enqueueable;
 	public function getHandles(): array;

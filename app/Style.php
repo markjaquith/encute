@@ -33,4 +33,14 @@ class Style extends Enqueue implements Contracts\EnqueueableStyle {
 	public function withDependencies(): Enqueueable {
 		return new StyleWithDependencies($this->handle);
 	}
+
+	public function keepIf(callable $condition): Enqueueable {
+		$reverseCondition = fn () => !call_user_func($condition);
+
+		return $this->dispatch(Actions\RemoveStyleIf::class, $reverseCondition);
+	}
+
+	public function removeIf(callable $condition): Enqueueable {
+		return $this->dispatch(Actions\RemoveStyleIf::class, $condition);
+	}
 }

@@ -33,26 +33,6 @@ abstract class Enqueue implements Enqueueable {
 		return $this;
 	}
 
-	// TODO: remove and implement downstream.
-	public function defer(): self {
-		return $this;
-	}
-
-	// TODO: remove and implement downstream.
-	public function showIf(callable $callback): self {
-		return $this;
-	}
-
-	// TODO: remove and implement downstream.
-	public function removeIf(callable $callback): self {
-		return $this;
-	}
-
-	// TODO: remove and implement downstream.
-	public function remove(): self {
-		return $this;
-	}
-
 	public function dispatch(string $actionClass, ...$args): Enqueueable {
 		$actionClass::dispatch($this, ...$args);
 

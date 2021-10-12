@@ -44,4 +44,14 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 	public function withDependencies(): Enqueueable {
 		return new ScriptWithDependencies($this->handle);
 	}
+
+	public function keepIf(callable $condition): Enqueueable {
+		$reverseCondition = fn () => !call_user_func($condition);
+
+		return $this->dispatch(Actions\RemoveScriptIf::class, $reverseCondition);
+	}
+
+	public function removeIf(callable $condition): Enqueueable {
+		return $this->dispatch(Actions\RemoveScriptIf::class, $condition);
+	}
 }
