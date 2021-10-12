@@ -14,6 +14,10 @@ class Style extends Enqueue implements Contracts\EnqueueableStyle {
 		return $this->dispatch(Actions\MoveStyleToFooter::class);
 	}
 
+	public function remove(): self {
+		return $this->dispatch(Actions\RemoveStyle::class);
+	}
+
 	public function getHandles(): array {
 		return [$this->handle];
 	}
