@@ -2,7 +2,9 @@
 
 namespace CWS\Encute;
 
-abstract class Enqueue implements Contracts\Enqueueable {
+use CWS\Encute\Contracts\Enqueueable;
+
+abstract class Enqueue implements Enqueueable {
 	protected string $name = '';
 	protected bool $defer = false;
 	protected bool $header = false;
@@ -77,6 +79,14 @@ abstract class Enqueue implements Contracts\Enqueueable {
 
 	public function remove(): self {
 		$this->removed = true;
+
+		return $this;
+	}
+
+	public function dispatch(string $actionClass, ...$args): Enqueueable {
+		foreach ($this->getNames() as $name) {
+			$actionClass::dispatch($name, ...$args);
+		}
 
 		return $this;
 	}

@@ -2,8 +2,12 @@
 
 namespace CWS\Encute;
 
+use CWS\Encute\Contracts\Enqueueable;
+
 class Script extends Enqueue implements Contracts\EnqueueableScript {
 	public function module(): self {
+		Actions\MakeScriptModule::dispatch($this->name);
+
 		return $this;
 	}
 
@@ -16,14 +20,18 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 	}
 
 	public function header(): self {
-		Actions\MoveScriptToHeader::dispatch($this->name);
-
-		return $this;
+		return $this->dispatch(Actions\MoveScriptToHeader::class);
 	}
 
 	public function footer(): self {
-		Actions\MoveScriptToFooter::dispatch($this->name);
+		return $this->dispatch(Actions\MoveScriptToFooter::class);
+	}
 
-		return $this;
+	public function getNames(): array {
+		return [$this->name];
+	}
+
+	public function dependencies(): ?Enqueueable {
+		return new ScriptDependencies($this->name);
 	}
 }

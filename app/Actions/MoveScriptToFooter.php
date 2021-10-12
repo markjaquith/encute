@@ -3,12 +3,6 @@
 namespace CWS\Encute\Actions;
 
 class MoveScriptToFooter extends Action {
-	protected string $name;
-
-	public function __construct(string $name) {
-		$this->name = $name;
-	}
-
 	protected function move(\WP_Scripts $wpScripts, string $name) {
 		if (wp_script_is($name, 'registered')) {
 			$src = $wpScripts->registered[$name]->src;

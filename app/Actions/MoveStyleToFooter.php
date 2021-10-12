@@ -3,12 +3,6 @@
 namespace CWS\Encute\Actions;
 
 class MoveStyleToFooter extends Action {
-	protected string $name;
-
-	public function __construct(string $name) {
-		$this->name = $name;
-	}
-
 	protected function move(\WP_Styles $wpStyles, string $name) {
 		if (wp_style_is($name, 'registered')) {
 			$dependencies = $wpStyles->registered[$name]->deps;
