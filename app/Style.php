@@ -22,10 +22,6 @@ class Style extends Enqueue implements Contracts\EnqueueableStyle {
 		return $this->dispatch(Actions\MakeStyleDefer::class);
 	}
 
-	public function getHandles(): array {
-		return [$this->handle];
-	}
-
 	public function dependencies(): Enqueueable {
 		return new StyleDependencies($this->handle);
 	}

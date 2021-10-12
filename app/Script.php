@@ -33,10 +33,6 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 		return $this->dispatch(Actions\RemoveScript::class);
 	}
 
-	public function getHandles(): array {
-		return [$this->handle];
-	}
-
 	public function dependencies(): Enqueueable {
 		return new ScriptDependencies($this->handle);
 	}
