@@ -4,7 +4,7 @@ namespace CWS\Encute;
 
 use CWS\Encute\Contracts\Enqueueable;
 
-class ScriptWithDependencies extends Script implements Contracts\EnqueueableScript {
+class ScriptWithDependencies extends ScriptDependencies implements Contracts\EnqueueableScript {
 	public function dependencies(): Enqueueable {
 		return $this;
 	}
@@ -12,7 +12,7 @@ class ScriptWithDependencies extends Script implements Contracts\EnqueueableScri
 	public function getHandles(): array {
 		return [
 			$this->handle,
-			...(app()->make(\WP_Scripts::class)->registered[$this->handle]->deps ?? []),
+			...$this->getAllDependencyHandles($this->handle),
 		];
 	}
 }

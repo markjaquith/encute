@@ -10,7 +10,7 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 	}
 
 	public function noModule(): self {
-		return $this;
+		return $this->dispatch(Actions\MakeScriptNoModule::class);
 	}
 
 	public function async(): self {
