@@ -32,6 +32,7 @@
         "lib/Illuminate/Collections/"
       ],
       "CWS\\Encute\\Mozart\\": "lib/Mozart/packages/",
+      "CWS\\Encute\\Tests\\": "tests/",
       "CWS\\Encute\\": "app/"
     }
   },
