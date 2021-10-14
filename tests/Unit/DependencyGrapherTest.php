@@ -37,7 +37,7 @@ class DependencyGrapherTest extends \WP_UnitTestCase {
 		$this->assertEquals(['encute-father', 'encute-mother'], $grapher->parentNodes('encute-child'));
 	}
 
-	public function all_adjacent_nodes_are_found() {
+	public function test_all_adjacent_nodes_are_found() {
 		$dependencies = new \WP_Dependencies;
 		$dependencies->add('encute-father', '#father', []);
 		$dependencies->add('encute-mother', '#mother', []);
@@ -45,5 +45,31 @@ class DependencyGrapherTest extends \WP_UnitTestCase {
 		$dependencies->add('encute-grandchild', '#grandchild', ['encute-child']);
 		$grapher = new DependencyGrapher($dependencies);
 		$this->assertEquals(['encute-father', 'encute-mother', 'encute-grandchild'], $grapher->adjacentNodes('encute-child'));
+	}
+
+	public function test_all_related_nodes_are_found() {
+		$dependencies = new \WP_Dependencies;
+		$dependencies->add('encute-father', '#father', []);
+		$dependencies->add('encute-mother', '#mother', []);
+		$dependencies->add('encute-child', '#child', ['encute-father', 'encute-mother']);
+		$dependencies->add('encute-rando1', '#rando1', []);
+		$dependencies->add('encute-grandchild1', '#grandchild1', ['encute-child', 'encute-rando1']);
+		$dependencies->add('encute-sibling', '#sibling', ['encute-father', 'encute-mother']);
+		$dependencies->add('encute-rando2', '#rando2', []);
+		$dependencies->add('encute-grandchild2', '#grandchild2', ['encute-sibling', 'encute-rando2']);
+		$grapher = new DependencyGrapher($dependencies);
+		$expected = [
+			'encute-father',
+			'encute-mother',
+			'encute-rando1',
+			'encute-grandchild1',
+			'encute-sibling',
+			'encute-rando2',
+			'encute-grandchild2',
+		];
+		sort($expected);
+		$actual = $grapher->allRelatedNodes(['encute-child']);
+		sort($actual);
+		$this->assertEquals($expected, $actual);
 	}
 }

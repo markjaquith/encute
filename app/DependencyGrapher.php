@@ -17,8 +17,33 @@ class DependencyGrapher {
 		return new static(app()->make(\WP_Scripts::class));
 	}
 
-	public function findAllRelatedNodes(array $inputs): array {
-		return [];
+	public function allRelatedNodes(array $inputs): array {
+		$knownNodes = [];
+		$unknownNodes = $inputs;
+
+		while(count($unknownNodes)) {
+			$node = array_shift($unknownNodes);
+
+			if (!isset($knownNodes[$node])) {
+				$relatedNodes = $this->adjacentNodes($node);
+				$knownNodes[$node] = $relatedNodes;
+				$unknownNodes = array_merge($unknownNodes, $relatedNodes);
+			}
+		}
+
+		$uniqueRelatedNodes = [];
+
+		foreach ($knownNodes as $nodeDependencies) {
+			foreach ($nodeDependencies as $node) {
+				$uniqueRelatedNodes[$node] = true;
+			}
+		}
+
+		foreach ($inputs as $inputNode) {
+			unset($uniqueRelatedNodes[$inputNode]);
+		}
+
+		return array_keys($uniqueRelatedNodes);
 	}
 
 	public function childNodes(string $handle): array {
@@ -33,7 +58,7 @@ class DependencyGrapher {
 		return $this->dependencies->registered[$handle]->deps ?? [];
 	}
 
-	public function findAdjacentNodes(string $handle): array {
+	public function adjacentNodes(string $handle): array {
 		return array_values(array_unique([
 			...$this->parentNodes($handle),
 			...$this->childNodes($handle),
