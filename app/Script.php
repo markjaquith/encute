@@ -21,10 +21,6 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 		return $this->dispatch(Actions\MakeScriptDefer::class);
 	}
 
-	public function header(): self {
-		return $this->dispatch(Actions\MoveScriptToHeader::class);
-	}
-
 	public function footer(): self {
 		return $this->dispatch(Actions\MoveScriptToFooter::class);
 	}

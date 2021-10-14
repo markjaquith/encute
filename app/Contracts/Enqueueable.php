@@ -3,7 +3,6 @@
 namespace CWS\Encute\Contracts;
 
 interface Enqueueable {
-	public function header(): Enqueueable;
 	public function footer(): Enqueueable;
 	// public function delay(int $milliseconds): Enqueueable;
 	public function defer(): Enqueueable;
