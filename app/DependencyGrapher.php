@@ -39,10 +39,6 @@ class DependencyGrapher {
 			}
 		}
 
-		foreach ($inputs as $inputNode) {
-			unset($uniqueRelatedNodes[$inputNode]);
-		}
-
 		return array_keys($uniqueRelatedNodes);
 	}
 

@@ -59,6 +59,7 @@ class DependencyGrapherTest extends \WP_UnitTestCase {
 		$dependencies->add('encute-grandchild2', '#grandchild2', ['encute-sibling', 'encute-rando2']);
 		$grapher = new DependencyGrapher($dependencies);
 		$expected = [
+			'encute-child',
 			'encute-father',
 			'encute-mother',
 			'encute-rando1',
