@@ -49,7 +49,8 @@ class DependencyGrapherTest extends \WP_UnitTestCase {
 
 	public function test_all_related_nodes_are_found() {
 		$dependencies = new \WP_Dependencies;
-		$dependencies->add('encute-father', '#father', []);
+		$dependencies->add('encute-adam', '#adam', []);
+		$dependencies->add('encute-father', '#father', ['encute-adam']);
 		$dependencies->add('encute-mother', '#mother', []);
 		$dependencies->add('encute-child', '#child', ['encute-father', 'encute-mother']);
 		$dependencies->add('encute-rando1', '#rando1', []);
@@ -59,6 +60,7 @@ class DependencyGrapherTest extends \WP_UnitTestCase {
 		$dependencies->add('encute-grandchild2', '#grandchild2', ['encute-sibling', 'encute-rando2']);
 		$grapher = new DependencyGrapher($dependencies);
 		$expected = [
+			'encute-adam',
 			'encute-child',
 			'encute-father',
 			'encute-mother',
@@ -69,8 +71,10 @@ class DependencyGrapherTest extends \WP_UnitTestCase {
 			'encute-grandchild2',
 		];
 		sort($expected);
-		$actual = $grapher->allRelatedNodes(['encute-child']);
-		sort($actual);
-		$this->assertEquals($expected, $actual);
+		foreach ($expected as $entryNode) {
+			$actual = $grapher->allRelatedNodes([$entryNode]);
+			sort($actual);
+			$this->assertEquals($expected, $actual);
+		}
 	}
 }
