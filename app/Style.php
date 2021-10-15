@@ -6,7 +6,12 @@ use CWS\Encute\Contracts\Enqueueable;
 
 class Style extends Enqueue implements Contracts\EnqueueableStyle {
 	public function footer(): self {
-		return $this->dispatch(Actions\MoveStyleToFooter::class);
+		$this->dispatch(Actions\DeferredAction::class, function () {
+			$allRelatedNodes = new self(DependencyGrapher::forStyles()->allRelatedNodes($this->getHandles()));
+			$allRelatedNodes->dispatch(Actions\MoveStyleToFooter::class);
+		});
+
+		return $this;
 	}
 
 	public function remove(): self {
@@ -15,14 +20,6 @@ class Style extends Enqueue implements Contracts\EnqueueableStyle {
 
 	public function defer(): self {
 		return $this->dispatch(Actions\MakeStyleDefer::class);
-	}
-
-	public function dependencies(): Enqueueable {
-		return new StyleDependencies($this->handle);
-	}
-
-	public function withDependencies(): Enqueueable {
-		return new StyleWithDependencies($this->handle);
 	}
 
 	public function keepIf(callable $condition): Enqueueable {

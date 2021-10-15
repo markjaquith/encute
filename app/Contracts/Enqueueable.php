@@ -10,8 +10,6 @@ interface Enqueueable {
 	// public function removeIf(callable $callback): Enqueueable;
 	public function remove(): Enqueueable;
 	public function getHandles(): array;
-	public function dependencies(): Enqueueable;
-	public function withDependencies(): Enqueueable;
 	public function dispatch(string $actionClass, ...$args): Enqueueable;
 	public static function get(string $handle): Enqueueable;
 }

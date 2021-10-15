@@ -5,18 +5,22 @@ namespace CWS\Encute;
 use CWS\Encute\Contracts\Enqueueable;
 
 abstract class Enqueue implements Enqueueable {
-	protected string $handle = '';
+	protected array $handles = [];
 
-	public function __construct(string $handle) {
-		$this->handle = $handle;
+	public function __construct($handles = []) {
+		if (is_string($handles)) {
+			$handles = [$handles];
+		}
+
+		$this->handles = $handles;
 	}
 
-	public static function get(string $handle): Enqueueable {
-		return new static($handle);
+	public static function get($handles = []): Enqueueable {
+		return new static($handles);
 	}
 
 	public function getHandles(): array {
-		return [$this->handle];
+		return $this->handles;
 	}
 
 	public function dispatch(string $actionClass, ...$args): Enqueueable {

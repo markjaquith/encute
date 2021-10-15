@@ -7,15 +7,16 @@ use CWS\Encute\Contracts\Actionable;
 use CWS\Encute\Contracts\Enqueueable;
 use CWS\Encute\Contracts\ActionQueue;
 
-abstract class Action implements Actionable {
-	protected Enqueueable $asset;
+class DeferredAction extends Action {
+	public $callback;
 
-	public function __construct(Enqueueable $asset) {
+	public function __construct(Enqueueable $asset, callable $callback) {
 		$this->asset= $asset;
+		$this->callback = $callback;
 	}
 
 	public static function dispatch(...$args): void {
 		$action = new static(...$args);
-		app()->make(ActionQueue::class)->add($action);
+		add_action('wp_print_styles', $action->callback, PHP_INT_MAX - 1);
 	}
 }

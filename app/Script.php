@@ -22,19 +22,16 @@ class Script extends Enqueue implements Contracts\EnqueueableScript {
 	}
 
 	public function footer(): self {
-		return $this->dispatch(Actions\MoveScriptToFooter::class);
+		$this->dispatch(Actions\DeferredAction::class, function () {
+			$allRelatedNodes = new self(DependencyGrapher::forScripts()->allRelatedNodes($this->getHandles()));
+			$allRelatedNodes->dispatch(Actions\MoveScriptToFooter::class);
+		});
+
+		return $this;
 	}
 
 	public function remove(): self {
 		return $this->dispatch(Actions\RemoveScript::class);
-	}
-
-	public function dependencies(): Enqueueable {
-		return new ScriptDependencies($this->handle);
-	}
-
-	public function withDependencies(): Enqueueable {
-		return new ScriptWithDependencies($this->handle);
 	}
 
 	public function keepIf(callable $condition): Enqueueable {
