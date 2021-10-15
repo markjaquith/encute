@@ -3,9 +3,7 @@
 namespace CWS\Encute\Actions;
 
 use function CWS\Encute\app;
-use CWS\Encute\Contracts\Actionable;
 use CWS\Encute\Contracts\Enqueueable;
-use CWS\Encute\Contracts\ActionQueue;
 
 class DeferredAction extends Action {
 	public $callback;
@@ -17,6 +15,8 @@ class DeferredAction extends Action {
 
 	public static function dispatch(...$args): void {
 		$action = new static(...$args);
-		add_action('wp_print_styles', $action->callback, PHP_INT_MAX - 1);
+		$hook = app()->make('config.queue_hook');
+		$priority = app()->make('config.queue_priority');
+		add_action($hook, $action->callback, $priority);
 	}
 }
