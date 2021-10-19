@@ -15,6 +15,11 @@ class ActionsProvider extends ServiceProvider {
 	}
 
 	public function boot(ActionQueueContract $actionQueue) {
+		// Do not run the queue on the admin.
+		if (is_admin()) {
+			return;
+		}
+
 		// TODO: Separate queues for scripts and styles,
 		// using wp_print_styles and wp_print_scripts hooks.
 		$hook = $this->app->make('config.queue_hook');
