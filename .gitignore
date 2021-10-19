@@ -2,6 +2,7 @@
 /node_modules
 /lib/Mozart
 /phpunit-*.phar
+.pnp.*
 .yarn/*
 !.yarn/cache
 !.yarn/patches
