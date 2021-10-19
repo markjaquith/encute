@@ -1,6 +1,7 @@
 /vendor
 /node_modules
-/lib/Mozart
+/lib/Mozart/*
+!/lib/Mozart/classmaps/.gitkeep
 /phpunit-*.phar
 .pnp.*
 .yarn/*
