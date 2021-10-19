@@ -74,7 +74,7 @@ This wrapper will be a no-op if Encute is not available, and it will both wait f
 
 ### Fluency
 
-`Script::get()` and `Style::get()` return instance of themselves, as do all calls to their methods, so you can just chain your calls.
+`Script::get()` and `Style::get()` return an instance of themselves, as do all calls to their methods, so you can just chain your calls.
 
 ### Script
 
