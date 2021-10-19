@@ -4,7 +4,7 @@ WordPress plugin for fluent management of scripts and styles.
 
 Managing scripts and styles on the front of your site can be tricky. This makes it trivial to do stuff like:
 
-- Shove a script (and its entire connecte family) into the footer
+- Shove a script (and its entire connected family) into the footer
 - Defer a script or a style until page load
 - Load a script `async`
 - Mark a script as `type="module"`
