@@ -11,6 +11,13 @@ class DependencyGrapherTest extends \WP_UnitTestCase {
 		$this->assertInstanceOf(DependencyGrapher::class, $grapher );
 	}
 
+	public function test_self_is_found_if_no_dependencies() {
+		$dependencies = new \WP_Dependencies;
+		$dependencies->add('encute-solo', '#solo', []);
+		$grapher = new DependencyGrapher($dependencies);
+		$this->assertEquals(['encute-solo'], $grapher->allRelatedNodes(['encute-solo']));
+	}
+
 	public function test_children_are_found() {
 		$dependencies = new \WP_Dependencies;
 		$dependencies->add('encute-parent', '#parent', []);

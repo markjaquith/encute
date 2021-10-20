@@ -39,6 +39,10 @@ class DependencyGrapher {
 			}
 		}
 
+		foreach ($inputs as $node) {
+			$uniqueRelatedNodes[$node] = true;
+		}
+
 		return array_keys($uniqueRelatedNodes);
 	}
 
