@@ -10,6 +10,7 @@ class Plugin extends Tekta\Plugin {
 		Tekta\Providers\TranslationsProvider::class,
 		Providers\EnqueueablesProvider::class,
 		Providers\ActionsProvider::class,
+		Providers\AdminProvider::class,
 	];
 
 	public function debug(): void {

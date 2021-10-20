@@ -1,11 +1,13 @@
+/dist
 /vendor
 /node_modules
 /phpunit-*.phar
 .pnp.*
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+/public/build/
+.DS_Store
