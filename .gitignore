@@ -1,4 +1,5 @@
-/dist
+/dist/*
+!/dist/index.html
 /vendor
 /node_modules
 /phpunit-*.phar
