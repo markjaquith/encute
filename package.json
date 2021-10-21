@@ -10,7 +10,10 @@
     "dev": "rollup -c -w",
     "build:production": "rollup -c --no-sourcemap",
     "start": "sirv dist --no-clear",
-		"package": "composer install && composer install --no-dev --no-scripts && wp dist-archive . encute.zip && composer install"
+		"clean-dist": "git clean -f dist",
+		"composer:production": "composer install && composer install --no-dev --no-scripts",
+		"make-zip": "wp dist-archive . encute.zip",
+    "package": "yarn run clean-dist && yarn run build:production && yarn run composer:production && yarn run make-zip && composer install"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
