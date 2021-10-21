@@ -30,7 +30,7 @@
 		<option value="Style">Style</option>
 	</select>
 
-	<input type="text" bind:value={handle} />
+	<input class="handle" type="text" bind:value={handle} />
 
 	<a href="#remove" on:click|preventDefault={() => dispatch('remove')}>&times;</a>
 </div>
@@ -75,5 +75,9 @@
 
 	a[href="#remove"]:hover {
 		color: #cc1818;
+	}
+
+	input.handle {
+		margin-left: 0.5rem;
 	}
 </style>
