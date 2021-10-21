@@ -4,6 +4,7 @@ namespace CWS\Encute\Providers;
 
 use CWS\Encute\Menu;
 use CWS\Encute\Admin;
+use CWS\Encute\Plugin;
 use CWS\Encute\Illuminate\Support\ServiceProvider;
 
 class AdminProvider extends ServiceProvider {
@@ -12,7 +13,9 @@ class AdminProvider extends ServiceProvider {
 		$this->app->singleton(Menu::class);
 	}
 
-	public function boot(Admin $admin) {
-		$admin->boot();
+	public function boot(Admin $admin, Plugin $plugin) {
+		if (file_exists($plugin->getPath('dist/main.js'))) {
+			$admin->boot();
+		}
 	}
 }
