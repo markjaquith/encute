@@ -9,7 +9,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "build:production": "rollup -c --no-sourcemap",
-    "start": "sirv dist --no-clear"
+    "start": "sirv dist --no-clear",
+		"package": "composer install && composer install --no-dev --no-scripts && wp dist-archive . encute.zip && composer install"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

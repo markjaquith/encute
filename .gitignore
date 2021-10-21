@@ -12,3 +12,4 @@
 !.yarn/versions
 /public/build/
 .DS_Store
+/*.zip
