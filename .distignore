@@ -1,4 +1,3 @@
-vendor
 tests
 tekta.json
 yarn.lock
@@ -20,3 +19,4 @@ phpunit.xml.dist
 src
 rollup.config.js
 dist/index.html
+.wordpress-org
