@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Encute
  * Description: Fluent management of scripts and styles.
- * Version: 0.6.2
+ * Version: 0.7.0
  * Author: Mark Jaquith
  * Plugin URI:
  * Author URI:

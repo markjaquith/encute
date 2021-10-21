@@ -1,7 +1,7 @@
 {
   "name": "@markjaquith/encute",
   "description": "Fluent management of scripts and styles.",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "license": "GPL-2.0-or-later",
   "private": true,
   "keywords": [],
@@ -9,7 +9,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "build:production": "rollup -c --no-sourcemap",
-		"start": "sirv dist --no-clear"
+    "start": "sirv dist --no-clear"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
