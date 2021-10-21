@@ -66,8 +66,14 @@
 
 	a[href="#remove"] {
 		color: #555;
-		margin-left: 1em;
+		margin-left: auto;
+		top: -0.5rem;
+		position: relative;
 		text-decoration: none;
 		font-size: 150%;
+	}
+
+	a[href="#remove"]:hover {
+		color: #cc1818;
 	}
 </style>
