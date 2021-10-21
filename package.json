@@ -1,7 +1,7 @@
 {
   "name": "@markjaquith/encute",
   "description": "Fluent management of scripts and styles.",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "license": "GPL-2.0-or-later",
   "private": true,
   "keywords": [],
@@ -10,9 +10,9 @@
     "dev": "rollup -c -w",
     "build:production": "rollup -c --no-sourcemap",
     "start": "sirv dist --no-clear",
-		"clean-dist": "git clean -f dist",
-		"composer:production": "composer install && composer install --no-dev --no-scripts",
-		"make-zip": "wp dist-archive . encute.zip",
+    "clean-dist": "git clean -f dist",
+    "composer:production": "composer install && composer install --no-dev --no-scripts",
+    "make-zip": "wp dist-archive . encute.zip",
     "package": "yarn run clean-dist && yarn run build:production && yarn run composer:production && yarn run make-zip && composer install"
   },
   "devDependencies": {
