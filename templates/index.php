@@ -48,6 +48,3 @@ add_action(Plugin::class, function(Plugin $plugin) {
 		<h2 class="title">Code Generation Tool</h2>
 		<div id="encute-code-generation">Loading&hellip;</div>
 </div>
-
-<script src="<?php echo esc_url($scriptSrc) ?>" defer></script>
-<link rel="stylesheet" href="<?php echo esc_url($styleSrc) ?>" />
