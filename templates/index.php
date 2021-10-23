@@ -24,7 +24,7 @@
 </style>
 
 <div class="wrap encute">
-	<h1><?php esc_html($title) ?></h1>
+	<h1><?php echo esc_html($title) ?></h1>
 	<div class="encute-card">
 		<h2 class="title">Getting Started</h2>
 		<p><b>Encute</b> allows you to manipulate the enqueued scripts and styles on the front of your site.</p>
