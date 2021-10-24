@@ -10,7 +10,7 @@
  * Requires PHP: 7.4
  * Text Domain: encute
  * Domain Path: /languages
- * License: GPL-2.0-or-later
+ * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
