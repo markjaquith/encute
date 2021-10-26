@@ -5,19 +5,19 @@ on:
     - "*"
 jobs:
   tag:
-    name: New tag
+    name: Deploy Tag
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Setup PHP with PECL extension
+    - name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: '7.4'
-    - name: Build # Remove or modify this step as needed
+    - name: Build
       run: |
         yarn
         yarn package:prep
-    - name: WordPress Plugin Deploy
+    - name: WordPress.org Plugin Deploy
       uses: 10up/action-wordpress-plugin-deploy@stable
       env:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
