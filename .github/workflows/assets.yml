@@ -14,4 +14,4 @@ jobs:
       env:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-        DO_NOT_COPY_OTHER_FILES: true
+        IGNORE_OTHER_FILES: true
