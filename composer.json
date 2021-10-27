@@ -17,9 +17,9 @@
       "classmap_prefix": "CWS_Encute_"
     }
   },
-	"config": {
-		"autoloader-suffix": "_CWS_Encute"
-	},
+  "config": {
+    "autoloader-suffix": "_CWS_Encute"
+  },
   "autoload": {
     "files": [
       "lib/Tekta/functions.php"
@@ -46,7 +46,7 @@
   "require-dev": {
     "coenjacobs/mozart": "dev-master",
     "friendsofphp/php-cs-fixer": "^2.16",
-    "php": "^7.4|^8.0"
+    "php": "^7.2"
   },
   "scripts": {
     "post-install-cmd": [
