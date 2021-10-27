@@ -72,3 +72,7 @@ Go to Tools > Encute and you'll be guided through code generation.
 = Can't I do this through a UI? =
 
 Not currently. This is a pro-level tool. You need to know what you're doing. If writing code isn't for you, then this plugin probably isn't for you.
+
+== Screenshots ==
+
+1. Code generation inside the plugin.
