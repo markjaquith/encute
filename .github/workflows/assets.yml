@@ -9,16 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Install PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-    - name: Build
-      run: |
-        yarn
-        yarn package:prep
     - name: WordPress.org plugin asset/readme update
-      uses: 10up/action-wordpress-plugin-asset-update@stable
+      uses: markjaquith/action-wordpress-plugin-asset-update@only-readme-and-assets
       env:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+        DO_NOT_COPY_OTHER_FILES: true
