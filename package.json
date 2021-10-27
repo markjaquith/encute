@@ -1,7 +1,7 @@
 {
   "name": "@markjaquith/encute",
   "description": "Fluent management of scripts and styles.",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "license": "GPL-2.0-or-later",
   "private": true,
   "keywords": [],
