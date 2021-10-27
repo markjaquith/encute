@@ -1,6 +1,7 @@
 <script>
 	import ManipulationCodeRepresentation from './ManipulationCodeRepresentation.svelte'
 	export let debug = false
+	export let hideUi = false
 	export let manipulations = []
 	$: console.log({ manipulations })
 	$: validManipulations = manipulations.filter(m => m.handle.length && Object.keys(m.methods).filter(k => m.methods[k]).length)
@@ -10,7 +11,7 @@
 &lt;?php
 use CWS\Encute\&lbrace;Plugin, Script, Style&rbrace;;
 
-add_action(Plugin::class, function(Plugin $plugin) &lbrace;{#if debug}<div>$plugin->debug();</div>{/if}{#each validManipulations as manipulation}
+add_action(Plugin::class, function(Plugin $plugin) &lbrace;{#if debug}<div>$plugin->debug();</div>{/if}{#if hideUi}<div>$plugin->hideUi();</div>{/if}{#each validManipulations as manipulation}
 		<div><ManipulationCodeRepresentation {...manipulation} /></div>{/each}&rbrace;);
 </pre>
 

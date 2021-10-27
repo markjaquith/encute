@@ -3,6 +3,7 @@ import Manipulation from './Manipulation.svelte'
 import Code from './Code.svelte'
 
 let debug = false
+let hideUi = false
 let manipulations = [
 	{
 		type: 'Script',
@@ -27,6 +28,9 @@ function addManipulation() {
 		<div class="options">
 			<label><input type="checkbox" value={true} bind:checked={debug} /> Show debug HTML comments around scripts and styles</label>
 		</div>
+		<div class="options">
+			<label><input type="checkbox" value={true} bind:checked={hideUi} /> Hide WordPress UI (this screen)</label>
+		</div>
 		{#if !manipulations.length}
 			<div class="spacer"></div>
 		{/if}
@@ -48,7 +52,7 @@ function addManipulation() {
 	</section>
 
 	<section class="code">
-		<Code {manipulations} {debug} />
+		<Code {manipulations} {debug} {hideUi} />
 	</section>
 </main>
 
@@ -68,5 +72,9 @@ function addManipulation() {
 
 	.spacer {
 		height: 1rem;
+	}
+
+	.options {
+		margin: 0 0 0.5rem 0;
 	}
 </style>
