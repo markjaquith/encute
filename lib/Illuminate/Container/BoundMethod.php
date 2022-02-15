@@ -139,16 +139,32 @@ class BoundMethod {
 	 * @return mixed
 	 */
 	protected static function addDependencyForCallParameter($container, $parameter, array &$parameters, &$dependencies) {
-		if (array_key_exists($parameter->name, $parameters)) {
-			$dependencies[] = $parameters[$parameter->name];
+		if (array_key_exists($paramName = $parameter->getName(), $parameters)) {
+			$dependencies[] = $parameters[$paramName];
 
-			unset($parameters[$parameter->name]);
-		} elseif ($parameter->getClass()) {
-			$dependencies[] = $container->make($parameter->getClass()->name);
-		} elseif ($parameter->isDefaultValueAvailable()) {
-			$dependencies[] = $parameter->getDefaultValue();
+			unset($parameters[$paramName]);
+		} elseif (! is_null($className = Util::getParameterClassName($parameter))) {
+			if (array_key_exists($className, $parameters)) {
+				$dependencies[] = $parameters[$className];
+
+				unset($parameters[$className]);
+		} else {
+			if ($parameter->isVariadic()) {
+				$variadicDependencies = $container->make($className);
+
+				$dependencies = array_merge($dependencies, is_array($variadicDependencies) ? $variadicDependencies : [$variadicDependencies]);
+			} else {
+				$dependencies[] = $container->make($className);
+			}
 		}
+	} elseif ($parameter->isDefaultValueAvailable()) {
+		$dependencies[] = $parameter->getDefaultValue();
+	} elseif (! $parameter->isOptional() && ! array_key_exists($paramName, $parameters)) {
+		$message = "Unable to resolve dependency [{$parameter}] in class {$parameter->getDeclaringClass()->getName()}";
+
+		throw new BindingResolutionException($message);
 	}
+}
 
 	/**
 	 * Determine if the given string is in Class@method syntax.

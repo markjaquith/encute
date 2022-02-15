@@ -18,7 +18,7 @@
 
 Encute
 
-Copyright 2021 Mark Jaquith
+Copyright 2021–2022 Mark Jaquith
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ This software incorporates work covered by the following copyright and permissio
 ———
 
 Tekta
-Copyright 2020–2021 Mark Jaquith
+Copyright 2020–2022 Mark Jaquith
 (MIT License)
 
 ———

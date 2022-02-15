@@ -43,7 +43,9 @@
   "require-dev": {
     "coenjacobs/mozart": "dev-master",
     "friendsofphp/php-cs-fixer": "^2.16",
-    "php": "^7.2"
+    "php": "^7.2|^8.0",
+    "yoast/phpunit-polyfills": "^1.0",
+    "phpunit/phpunit": "^9.5"
   },
   "scripts": {
     "post-install-cmd": [
