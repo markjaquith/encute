@@ -42,7 +42,7 @@
   },
   "require-dev": {
     "coenjacobs/mozart": "dev-master",
-    "friendsofphp/php-cs-fixer": "^2.16",
+    "friendsofphp/php-cs-fixer": "^3.6",
     "php": "^7.2|^8.0",
     "yoast/phpunit-polyfills": "^1.0",
     "phpunit/phpunit": "^9.5"
