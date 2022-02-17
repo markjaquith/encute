@@ -21,7 +21,7 @@ class DependencyGrapher {
 		$knownNodes = [];
 		$unknownNodes = $inputs;
 
-		while(count($unknownNodes)) {
+		while (count($unknownNodes)) {
 			$node = array_shift($unknownNodes);
 
 			if (!isset($knownNodes[$node])) {

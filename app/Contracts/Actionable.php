@@ -2,4 +2,5 @@
 
 namespace CWS\Encute\Contracts;
 
-interface Actionable {}
+interface Actionable {
+}

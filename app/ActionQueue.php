@@ -2,8 +2,8 @@
 
 namespace CWS\Encute;
 
-use CWS\Encute\Illuminate\Support\Collection;
 use CWS\Encute\Contracts\Actionable;
+use CWS\Encute\Illuminate\Support\Collection;
 
 class ActionQueue implements Contracts\ActionQueue {
 	protected Collection $actions;

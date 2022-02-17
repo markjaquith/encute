@@ -2,4 +2,5 @@
 
 namespace CWS\Encute\Contracts;
 
-interface EnqueueableStyle extends Enqueueable {}
+interface EnqueueableStyle extends Enqueueable {
+}

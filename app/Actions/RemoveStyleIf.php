@@ -14,7 +14,7 @@ class RemoveStyleIf extends Action {
 
 	public function handle(\WP_Styles $wpStyles): void {
 		if (call_user_func($this->condition)) {
-			foreach($this->asset->getHandles() as $handle) {
+			foreach ($this->asset->getHandles() as $handle) {
 				$wpStyles->remove($handle);
 			}
 		}

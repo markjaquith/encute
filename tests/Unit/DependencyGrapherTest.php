@@ -5,10 +5,9 @@ namespace CWS\Encute\Tests\Unit;
 use CWS\Encute\DependencyGrapher;
 
 class DependencyGrapherTest extends \WP_UnitTestCase {
-
 	public function test_it_can_be_instantiated() {
 		$grapher = new DependencyGrapher(wp_scripts());
-		$this->assertInstanceOf(DependencyGrapher::class, $grapher );
+		$this->assertInstanceOf(DependencyGrapher::class, $grapher);
 	}
 
 	public function test_self_is_found_if_no_dependencies() {

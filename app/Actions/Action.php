@@ -4,8 +4,8 @@ namespace CWS\Encute\Actions;
 
 use function CWS\Encute\app;
 use CWS\Encute\Contracts\Actionable;
-use CWS\Encute\Contracts\Enqueueable;
 use CWS\Encute\Contracts\ActionQueue;
+use CWS\Encute\Contracts\Enqueueable;
 
 abstract class Action implements Actionable {
 	protected Enqueueable $asset;

@@ -14,7 +14,7 @@ class RemoveScriptIf extends Action {
 
 	public function handle(\WP_Scripts $wpScripts): void {
 		if (call_user_func($this->condition)) {
-			foreach($this->asset->getHandles() as $handle) {
+			foreach ($this->asset->getHandles() as $handle) {
 				$wpScripts->remove($handle);
 			}
 		}
