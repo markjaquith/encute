@@ -1382,6 +1382,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	 *
 	 * @return array
 	 */
+	#[\ReturnTypeWillChange]
 	public function jsonSerialize() {
 		return array_map(function ($value) {
 			if ($value instanceof JsonSerializable) {
@@ -1411,6 +1412,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	 *
 	 * @return \ArrayIterator
 	 */
+	#[\ReturnTypeWillChange]
 	public function getIterator() {
 		return new ArrayIterator($this->items);
 	}
@@ -1430,6 +1432,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
 	 *
 	 * @return int
 	 */
+	#[\ReturnTypeWillChange]
 	public function count() {
 		return count($this->items);
 	}
